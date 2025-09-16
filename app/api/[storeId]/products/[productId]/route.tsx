@@ -106,11 +106,8 @@ export async function PATCH (
                 isArchived,
                 images: {
                     deleteMany: {},
-                    
-                    },
-                    isFeatured,
-                    isArchived,
-                }
+                },
+               
             }
         });
 
@@ -125,14 +122,14 @@ export async function PATCH (
                     }
                 }
             }
-        })
-            }
+        });
 
         return NextResponse.json(product);
     } catch (error) {
         console.log('[PRODUCT_PATCH]',error);
         return new NextResponse("Internal error",{status: 500})
     }
+}
 
 
 export async function DELETE (

@@ -18,7 +18,7 @@ import { Input } from "@/components/ui/input";
 import { AlertModal } from "@/components/modals/alert-modal";
 import { ApiAlert } from "@/components/ui/api-alert";
 import { useOrigin } from "@/hooks/use-origin";
-import ImageUpload from "@/components/ui/image-uploate";
+import ImageUpload from "@/components/ui/image-upload";
 
 const formSchema = z.object({
     label: z.string().min(1),

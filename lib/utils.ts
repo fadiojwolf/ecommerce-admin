@@ -5,8 +5,8 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export const formatDate =  new Intl.DateTimeFormat("en-US", {
+export const formatter  =  new Intl.NumberFormat("en-US", {
     style: "currency",
-    currncy: "USD",
+    currency: "USD",
     
 })

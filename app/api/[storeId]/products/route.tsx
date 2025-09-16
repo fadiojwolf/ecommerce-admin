@@ -99,11 +99,11 @@ export async function GET (
     {params} : {params: {storeId: string}}
 ) {
     try {
-        const { searhParams } = new URL(req.url);
-        const categoryId = searhParams.get("categoryId") || undefined;
-        const colorId = searhParams.get("colorId") || undefined;
-        const sizeId = searhParams.get("sizeId") || undefined;
-        const isFeatured = searhParams.get("isFeatured");
+         const { searchParams } = new URL(req.url);
+        const categoryId = searchParams.get("categoryId") || undefined;
+        const colorId = searchParams.get("colorId") || undefined;
+        const sizeId = searchParams.get("sizeId") || undefined;
+        const isFeatured = searchParams.get("isFeatured");
 
         if(!params.storeId) {
             return new NextResponse("StoreId is required", {status: 400});

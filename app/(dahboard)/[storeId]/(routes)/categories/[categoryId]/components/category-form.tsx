@@ -18,7 +18,7 @@ import { Input } from "@/components/ui/input";
 import { AlertModal } from "@/components/modals/alert-modal";
 import { ApiAlert } from "@/components/ui/api-alert";
 import { useOrigin } from "@/hooks/use-origin";
-import ImageUpload from "@/components/ui/image-uploate";
+import ImageUpload from "@/components/ui/image-upload";
 import { Select, SelectTrigger } from "@radix-ui/react-select";
 import { SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 
