@@ -174,7 +174,7 @@ export const CategoryForm:React.FC<CategoryFormProps> = ({
                             )}
                         />
                     </div>
-                    <Button disabled={loading} className="ml-auto " typeof="submit">
+                    <Button disabled={loading} className="ml-auto " type="submit">
                         {action}
                     </Button>
                 </form>

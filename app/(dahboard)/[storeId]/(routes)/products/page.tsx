@@ -1,20 +1,19 @@
 import prismadb from "@/lib/prismadb";
 import { formatter } from "@/lib/utils";
-
 import { ProductClient } from "./components/client";
 import { format } from "date-fns";
 import { ProductColumn } from "./components/columns";
-import { size } from "zod";
-import { ca, is } from "zod/v4/locales";
 
 const ProductsPage = async ({
     params
 } : {
-    params : { storeId: string }
+    params: Promise<{ storeId: string }> // Добавляем Promise
 }) => {
-    const products = await  prismadb.product.findMany({
+    const resolvedParams = await params; 
+    
+    const products = await prismadb.product.findMany({
         where: {
-            storeId:params.storeId
+            storeId: resolvedParams.storeId 
         },
         include: {
             category: true,
@@ -22,13 +21,13 @@ const ProductsPage = async ({
             color: true
         },
         orderBy: {
-            createdAt : 'desc'
+            createdAt: 'desc'
         }
     });
 
     const formattedProducts: ProductColumn[] = products.map((item) => ({
-        id:item.id,
-        name:item.name,
+        id: item.id,
+        name: item.name,
         isFeatured: item.isFeatured,
         isArchived: item.isArchived,
         price: formatter.format(item.price.toNumber()),
@@ -38,10 +37,9 @@ const ProductsPage = async ({
         createdAt: format(item.createdAt, "MMMM do, yyyy")
     }));
 
-
     return (
         <div className="flex-col">
-            <div className=" flex-1 space-y-4 p-8 pt-6">
+            <div className="flex-1 space-y-4 p-8 pt-6">
                 <ProductClient data={formattedProducts}/>
             </div>
         </div>

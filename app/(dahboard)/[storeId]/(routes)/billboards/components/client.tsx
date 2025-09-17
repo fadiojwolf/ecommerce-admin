@@ -17,7 +17,7 @@ interface BillboardClientProps {
     data: BillboardColumn[]
 }
 
-export const BillboardClient: React.FC<BillboardClientProps> =  ({
+export const BillboardsClient: React.FC<BillboardClientProps> =  ({
     data 
   }) => {    
     const route = useRouter();

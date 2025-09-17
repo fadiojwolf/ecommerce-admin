@@ -154,7 +154,7 @@ export const ColorForm:React.FC<ColorFormProps> = ({
                             )}
                         />
                     </div>
-                    <Button disabled={loading} className="ml-auto " typeof="submit">
+                    <Button disabled={loading} className="ml-auto " type="submit">
                         {action}
                     </Button>
                 </form>
