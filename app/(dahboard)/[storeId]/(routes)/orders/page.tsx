@@ -16,7 +16,7 @@ const OrdersPage = async ({
             storeId: resolvedParams.storeId 
         },
         include: {
-            orderItem: {
+            orderItems: {
                 include: {
                     product: true
                 }
@@ -32,10 +32,10 @@ const OrdersPage = async ({
         phone: item.phone,
         address: item.address,
         isPaid: item.isPaid,
-        totalPrice: formatter.format(item.orderItem.reduce((total, item) => { 
+        totalPrice: formatter.format(item.orderItems.reduce((total, item) => { 
             return total + Number(item.product.price);
         }, 0)),
-        products: item.orderItem.map((orderItem) => orderItem.product.name).join(", "),
+        products: item.orderItems.map((orderItem) => orderItem.product.name).join(", "),
         createdAt: format(item.createdAt, "MMMM do, yyyy")
     }));
 
